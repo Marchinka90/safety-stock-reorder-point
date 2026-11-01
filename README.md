@@ -46,4 +46,3 @@ Work in progress.
 ## Author
 
 Martin Marchev
-# safety-stock-reorder-point
