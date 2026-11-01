@@ -22,13 +22,10 @@ is built step by step in `safety_stock_reorder_point.ipynb`.
 
 The retailer's real sales export could not be published, so the notebook works
 on **synthetic daily sales** for three products, A, B and C, from 2026-04-01 to
-2026-10-31. `data/generate_daily_sales.py` produces them with a fixed random
-seed from two simple random experiments per day, a Bernoulli trial for "does
-the product sell today?" and a probability table for the units sold on such a
-day, with parameters set to match the statistical profile of three real
-products. `data/daily_sales.csv` is its output, with columns `sale_date`,
-`product` and `units`; days without sales are not listed and are treated as
-zero. Running the script again reproduces the file exactly.
+2026-10-31, built to match the statistical profile of three real products: the
+share of days with a sale and the distribution of units sold on such a day.
+`data/daily_sales.csv` has the columns `sale_date`, `product` and `units`;
+days without sales are not listed and are treated as zero.
 
 ## How to run
 
@@ -38,11 +35,3 @@ pip install -r requirements.txt
 
 Open the notebook in VS Code or Jupyter with a Python 3.11 or newer kernel
 that has the packages above. Tested with Python 3.14 on Windows 11.
-
-## Status
-
-Work in progress.
-
-## Author
-
-Martin Marchev
