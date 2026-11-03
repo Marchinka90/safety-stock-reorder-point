@@ -16,7 +16,10 @@ ordering system has to answer one question:
 
 That stock level is called the **reorder point**, and the part of it that only
 exists to protect against uncertainty is the **safety stock**. The analysis
-is built step by step in `safety_stock_reorder_point.ipynb`.
+is built step by step in `safety_stock_reorder_point.ipynb`, written as a
+technical report: problem and hypotheses, data, exploratory analysis,
+mathematical background, calculation, simulation-based validation, results
+and discussion, conclusion.
 
 ## Data
 
@@ -26,6 +29,16 @@ on **synthetic daily sales** for three products, A, B and C, from 2026-04-01 to
 share of days with a sale and the distribution of units sold on such a day.
 `data/daily_sales.csv` has the columns `sale_date`, `product` and `units`;
 days without sales are not listed and are treated as zero.
+
+## Results
+
+For a 95 % cycle service level the reorder points are 33, 127 and 344 units
+for products A, B and C, of which 11, 21 and 53 units are safety stock. A
+Monte Carlo simulation on the data confirms the first two; C falls short
+because a single wholesale order of 40 units makes its daily demand a mixture
+that one normal curve cannot describe. Keeping such orders out of the daily
+series fixes it and saves 27 units. Section 7 of the notebook discusses the
+three hypotheses and the limitations of the model.
 
 ## How to run
 
